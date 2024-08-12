@@ -83,7 +83,7 @@ if img_file_buffer is not None:
     dim1_unique = df["o.Dim1"].unique()
 
     # Iterar sobre el primer nivel de la jerarquía
-    st.table(df)
+    # st.table(df)
     for dim1 in dim1_unique:
         # with st.container():
         st.markdown(f"<div style='font-size:24px; font-weight:bold'>{dim1}</div>", unsafe_allow_html=True)
