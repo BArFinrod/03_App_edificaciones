@@ -78,7 +78,7 @@ if img_file_buffer is not None:
     "max_tokens": 2000
     }
 
-    df = _get_completion(payload)
+    df = _get_completion(payload).drop_duplicates()
 
     dim1_unique = df["o.Dim1"].unique()
 
