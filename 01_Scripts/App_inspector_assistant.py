@@ -13,7 +13,8 @@ ast1 = st.secrets['ast1']
 ast2 = st.secrets['ast2']
 ast3 = st.secrets['ast3']
 uri = st.secrets['uri']
-auth = st.secrets['auth']
+auth1 = st.secrets['auth1']
+auth2 = st.secrets['auth2']
 
 headers = {
     "Content-Type": "application/json",
@@ -28,7 +29,7 @@ def _get_completion(payload):
     identificados = json.loads(identificados_raw)
     ident = identificados['objetos']
     query = ast1 + str(ident) + ast2
-    driverDB = neo4j.GraphDatabase.driver(uri, auth=auth)
+    driverDB = neo4j.GraphDatabase.driver(uri, auth=(auth1, auth2))
     df = driverDB.execute_query(query, result_transformer_= neo4j.Result.to_df)
     st.write(ident)
     return df
