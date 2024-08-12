@@ -78,9 +78,9 @@ if img_file_buffer is not None:
     "max_tokens": 2000
     }
 
-    df = _get_completion(payload).drop_duplicates()
+    df = _get_completion(payload).drop_duplicates().fillna(" ")
 
-    dim1_unique = df["o.Dim1"].unique().fillna(" ")
+    dim1_unique = df["o.Dim1"].unique()
 
     # Iterar sobre el primer nivel de la jerarquía
     st.table(df)
