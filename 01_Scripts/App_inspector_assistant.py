@@ -31,7 +31,6 @@ def _get_completion(payload):
     query = ast1 + str(ident) + ast2
     driverDB = neo4j.GraphDatabase.driver(uri, auth=(auth1, auth2))
     df = driverDB.execute_query(query, result_transformer_= neo4j.Result.to_df)
-    st.write(ident)
     return df
 
 path_str = Path(__file__).parent.parent
