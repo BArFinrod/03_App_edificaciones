@@ -80,7 +80,7 @@ if img_file_buffer is not None:
 
     df = _get_completion(payload).drop_duplicates()
 
-    dim1_unique = df["o.Dim1"].unique()
+    dim1_unique = df["o.Dim1"].unique().fillna(" ")
 
     # Iterar sobre el primer nivel de la jerarquía
     st.table(df)
